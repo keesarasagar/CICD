@@ -1,0 +1,14 @@
+- name: install maria db
+  hosts: db
+  become: yes
+
+  tasks:
+  - name: install db
+    dnf:
+      name: mariadb-server
+      state: present
+   
+  - name: start
+    service:
+      name: mariadb
+      state: started
